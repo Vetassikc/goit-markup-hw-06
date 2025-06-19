@@ -24,9 +24,10 @@ body {
 }
 
 .container {
-    max-width: 1158px;
+    max-width: 428px;
+    /* Максимальна ширина для мобільних пристроїв */
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 16px;
 }
 
 ul,
@@ -57,8 +58,9 @@ img {
 }
 
 .section {
-    padding-top: 120px;
-    padding-bottom: 120px;
+    padding-top: 96px;
+    /* Менші відступи для мобільних */
+    padding-bottom: 96px;
 }
 
 /* Хедер */
@@ -87,7 +89,6 @@ img {
     letter-spacing: 0.03em;
     text-transform: uppercase;
     color: #4d5ae5;
-    margin-right: 76px;
 }
 
 .logo span {
@@ -95,7 +96,7 @@ img {
 }
 
 .nav-list {
-    display: flex;
+    display: none;
     gap: 40px;
 }
 
@@ -129,6 +130,7 @@ img {
 }
 
 .contact {
+    display: none;
     font-style: normal;
 }
 
@@ -147,29 +149,40 @@ img {
     color: #404bbf;
 }
 
+.menu-open-btn {
+    display: block;
+    /* Показуємо кнопку-бургер */
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    line-height: 0;
+    cursor: pointer;
+}
+
 /* Секція Hero */
 .hero {
     max-width: 1440px;
     margin: 0 auto;
     background-color: #2e2f42;
-    background-image: linear-gradient(rgba(46, 47, 66, 0.7),
-            rgba(46, 47, 66, 0.7)),
-        url(../images/people-office.jpg);
+    padding: 112px 0;
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+            url(../images/hero-bg-mobile.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    padding: 188px 0;
     text-align: center;
 }
 
 .hero-title {
     font-weight: 700;
-    font-size: 56px;
-    line-height: 1.07;
+    font-size: 36px;
+    line-height: 1.11;
     letter-spacing: 0.02em;
     color: #ffffff;
-    max-width: 496px;
-    margin: 0 auto 48px;
+    max-width: 320px;
+    /* Обмеження ширини по мобільному макету */
+    margin: 0 auto 72px;
+    /* Змінюємо нижній відступ */
 }
 
 .hero-button {
@@ -198,11 +211,13 @@ img {
 /* Секція Features */
 .features-list {
     display: flex;
-    gap: 24px;
+    flex-direction: column;
+    /* ЕЛЕМЕНТИ В СТОВПЧИК */
+    gap: 72px;
 }
 
 .features-item {
-    width: calc((100% - 72px) / 4);
+    width: 100%;
 }
 
 .features-icon-container {
@@ -224,6 +239,8 @@ img {
     letter-spacing: 0.02em;
     color: #2e2f42;
     margin-bottom: 8px;
+    width: 100%;
+    text-align: center;
 }
 
 /* Секція Team */
@@ -244,8 +261,11 @@ img {
 
 .team-list {
     display: flex;
-    justify-content: center;
-    gap: 24px;
+    flex-direction: column;
+    /* В СТОВПЧИК */
+    align-items: center;
+    /* Центруємо картки */
+    gap: 72px;
 }
 
 .team-item {
@@ -254,7 +274,8 @@ img {
         0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
     border-radius: 0px 0px 4px 4px;
     text-align: center;
-    width: calc((100% - 72px) / 4);
+    width: 264px;
+    /* Ширина картки */
 }
 
 .team-member-content {
@@ -304,13 +325,13 @@ img {
 /* Секція Portfolio */
 .portfolio-list {
     display: flex;
-    flex-wrap: wrap;
-    column-gap: 24px;
-    row-gap: 48px;
+    flex-direction: column;
+    /* В СТОВПЧИК */
+    gap: 48px;
 }
 
 .portfolio-item {
-    width: calc((100% - 48px) / 3);
+    width: 100%;
     transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -365,11 +386,16 @@ img {
 
 .footer-container {
     display: flex;
-    align-items: baseline;
+    flex-direction: column;
+    /* В СТОВПЧИК */
+    align-items: center;
+    /* ПО ЦЕНТРУ */
+    gap: 72px;
 }
 
 .footer-logo-wrap {
-    margin-right: 120px;
+    margin-right: 0px;
+    text-align: center;
 }
 
 .footer-logo {
@@ -388,7 +414,8 @@ img {
 }
 
 .footer-social-wrap {
-    margin-right: 80px;
+    margin-right: 0px;
+    text-align: center;
 }
 
 .footer-social-title {
@@ -406,6 +433,10 @@ img {
     background-color: #31d0aa;
 }
 
+.footer-subscribe-wrap {
+    text-align: center;
+}
+
 .footer-subscribe-title {
     font-weight: 500;
     margin-bottom: 16px;
@@ -414,7 +445,10 @@ img {
 
 .footer-form {
     display: flex;
-    gap: 24px;
+    flex-direction: column;
+    /* ФОРМА В СТОВПЧИК */
+    align-items: center;
+    gap: 16px;
 }
 
 
@@ -689,4 +723,249 @@ img {
 .footer-subscribe-btn:hover,
 .footer-subscribe-btn:focus {
     background-color: #404bbf;
+}
+
+/* MOBILE MENU STYLES */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: 100;
+    padding: 72px 16px 40px;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu.is-open {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+.menu-close-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    /* ... стилі для кнопки закриття ... */
+}
+
+.mobile-menu-nav {
+    margin-bottom: auto;
+}
+
+.mobile-menu-nav li {
+    margin-bottom: 40px;
+}
+
+.mobile-menu-link {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.11;
+    color: #2E2F42;
+}
+
+.mobile-menu-link.current {
+    color: #404bbf;
+}
+
+.mobile-menu-contacts {
+    font-style: normal;
+    margin-bottom: 48px;
+}
+
+.mobile-contacts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.mobile-contact-link {
+    font-weight: 500;
+    font-size: 20px;
+    color: #434455;
+}
+
+.mobile-contact-link.accent {
+    font-weight: 700;
+    font-size: 27px;
+    color: #4d5ae5;
+}
+
+
+.mobile-menu-socials {
+    display: flex;
+    justify-content: flex-start;
+    gap: 40px;
+}
+
+/* =================== TABLET STYLES =================== */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+
+    .menu-open-btn {
+        display: none;
+    }
+
+    .nav-list,
+    .contact {
+        display: flex;
+    }
+
+    .contact-list {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .contact-link {
+        font-size: 12px;
+        line-height: 1.17;
+    }
+
+    .hero {
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/hero-bg-tablet.jpg);
+    }
+
+    .hero-title {
+        font-size: 56px;
+        line-height: 1.07;
+        max-width: 496px;
+    }
+
+    .features-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        column-gap: 24px;
+        row-gap: 72px;
+    }
+
+    .features-item {
+        width: calc((100% - 24px) / 2);
+    }
+
+    .features-title {
+        text-align: left;
+    }
+
+    .team-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 24px;
+        row-gap: 64px;
+    }
+
+    .portfolio-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        column-gap: 24px;
+        row-gap: 72px;
+    }
+
+    .portfolio-item {
+        width: calc((100% - 24px) / 2);
+    }
+
+    .footer-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: baseline;
+        max-width: 584px;
+        column-gap: 24px;
+        row-gap: 72px;
+    }
+
+    .footer-logo-wrap,
+    .footer-social-wrap,
+    .footer-subscribe-wrap {
+        text-align: left;
+    }
+
+    .footer-form {
+        flex-direction: row;
+        gap: 24px;
+    }
+}
+
+/* =================== DESKTOP STYLES =================== */
+@media screen and (min-width: 1158px) {
+    .container {
+        max-width: 1158px;
+    }
+
+    .section {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+
+    .contact-list {
+        flex-direction: row;
+        gap: 40px;
+    }
+
+    .contact-link {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .hero {
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/\ hero-bg-desktop.jpg);
+        padding: 188px 0;
+    }
+
+    .features-list,
+    .team-list {
+        flex-wrap: nowrap;
+        gap: 24px;
+    }
+
+    .features-item {
+        width: calc((100% - 72px) / 4);
+    }
+
+    .portfolio-item {
+        width: calc((100% - 48px) / 3);
+    }
+
+    .footer-container {
+        flex-wrap: nowrap;
+        max-width: 1158px;
+        gap: 0;
+    }
+
+    .footer-logo-wrap {
+        margin-right: 120px;
+    }
+
+    .footer-social-wrap {
+        margin-right: 80px;
+    }
+}
+
+/* =================== RETINA BACKGROUNDS =================== */
+@media (min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+    .hero {
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/hero-bg-mobile@2x.jpg);
+    }
+}
+
+@media screen and (min-width: 768px) and (min-resolution: 192dpi),
+screen and (min-width: 768px) and (min-resolution: 2dppx) {
+    .hero {
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/hero-bg-tablet@2x.jpg);
+    }
+}
+
+@media screen and (min-width: 1158px) and (min-resolution: 192dpi),
+screen and (min-width: 1158px) and (min-resolution: 2dppx) {
+    .hero {
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/hero-bg-desktop@2x.jpg);
+    }
 }
