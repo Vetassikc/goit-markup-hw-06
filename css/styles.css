@@ -68,6 +68,7 @@ img {
     border-bottom: 1px solid #e7e9fc;
     box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
         0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
+    padding: 16px 0;
 }
 
 .header-container {
@@ -165,7 +166,7 @@ img {
     max-width: 1440px;
     margin: 0 auto;
     background-color: #2e2f42;
-    padding: 112px 0;
+    padding: 72px 0;
         background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
             url(../images/hero-bg-mobile.jpg);
     background-repeat: no-repeat;
@@ -180,7 +181,7 @@ img {
     line-height: 1.11;
     letter-spacing: 0.02em;
     color: #ffffff;
-    max-width: 320px;
+    max-width: 216px;
     /* Обмеження ширини по мобільному макету */
     margin: 0 auto 72px;
     /* Змінюємо нижній відступ */
@@ -222,7 +223,7 @@ img {
 }
 
 .features-icon-container {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     height: 112px;
@@ -234,9 +235,9 @@ img {
 }
 
 .features-title {
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 1.2;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.11;
     letter-spacing: 0.02em;
     color: #2e2f42;
     margin-bottom: 8px;
@@ -342,6 +343,9 @@ img {
 }
 
 .portfolio-image-wrap {
+    width: 100%;
+    height: 264px;
+    /* Висота картки */
     position: relative;
     overflow: hidden;
 }
@@ -528,9 +532,7 @@ img {
     transform: translate(-50%, -50%);
 
     /* --- Нові стилі для мобільної версії --- */
-    width: calc(100% - 32px);
-    max-width: 392px;
-
+    width: 288px;
     min-height: 584px;
     background-color: #fcfcfc;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
@@ -760,6 +762,7 @@ img {
     position: absolute;
     top: 24px;
     right: 24px;
+    border-radius: 50%;
     /* ... стилі для кнопки закриття ... */
 }
 
@@ -814,6 +817,10 @@ img {
 
 /* =================== TABLET STYLES =================== */
 @media screen and (min-width: 768px) {
+.header {
+        padding: 0;
+    }
+
     .container {
         max-width: 768px;
     }
@@ -900,15 +907,20 @@ img {
         flex-direction: row;
         gap: 24px;
     }
+        .modal {
+            width: 408px;
+            padding: 72px 24px 24px 24px;
+        }
 }
 
-.modal {
-    width: 408px;   
-    padding: 72px 24px 24px 24px;
-}
+
 
 /* =================== DESKTOP STYLES =================== */
 @media screen and (min-width: 1158px) {
+.header {
+        padding: 0;
+    }
+
     .container {
         max-width: 1158px;
     }
@@ -931,6 +943,24 @@ img {
     .hero {
         background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/\ hero-bg-desktop.jpg);
         padding: 188px 0;
+    }
+
+    .features-icon-container {
+        display: flex;
+        /* Показуємо іконки тільки на десктопі */
+        align-items: center;
+        justify-content: center;
+        height: 112px;
+        background-color: #f4f4fd;
+        border-radius: 4px;
+        margin-bottom: 8px;
+    }
+
+    .features-title {
+        font-weight: 500;
+        /* Повертаємо десктопні стилі */
+        font-size: 20px;
+        line-height: 1.2;
     }
 
     .features-list,
