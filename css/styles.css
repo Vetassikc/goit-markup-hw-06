@@ -331,7 +331,7 @@ img {
         /* В СТОВПЧИК */
         align-items: center;
         /* Центруємо картки */
-        gap: 36px;
+        gap: 48px;
 }
 
 .portfolio-item {
